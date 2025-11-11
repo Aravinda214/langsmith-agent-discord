@@ -4,6 +4,9 @@ langchain-openai>=0.0.5
 langsmith>=0.0.87
 python-dotenv>=1.0.0
 
+# HTTP requests for ScaleDown API
+requests>=2.31.0
+
 # MCP (Model Context Protocol) support
 mcp>=0.1.0
 

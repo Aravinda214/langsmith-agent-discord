@@ -159,7 +159,8 @@ Be strict: only mark confidence as "high" if the response directly answers the q
         self.logger.info("Generating user greeting")
         
         # Use the language model to generate a natural greeting
-        greeting = await self._invoke_model(self.GREETING_TEMPLATE)
+        response_data = await self._invoke_model(self.GREETING_TEMPLATE, return_usage=True)
+        greeting = response_data['content']
         
         # Store in conversation history
         self.conversation_history.append({
@@ -170,7 +171,12 @@ Be strict: only mark confidence as "high" if the response directly answers the q
         return {
             "message": greeting,
             "status": "greeting",
-            "next_action": "collect"
+            "next_action": "collect",
+            "token_usage": {
+                "prompt_tokens": response_data['usage']['prompt_tokens'],
+                "completion_tokens": response_data['usage']['completion_tokens'],
+                "total_tokens": response_data['usage']['total_tokens']
+            }
         }
     
     async def _collect_preferences(self, user_response: str) -> Dict[str, Any]:
@@ -293,9 +299,20 @@ Be strict: only mark confidence as "high" if the response directly answers the q
         validation_response = await self._invoke_model(validation_prompt)
         
         try:
+            # Clean the response - remove markdown code blocks if present
+            cleaned_response = validation_response.strip()
+            if cleaned_response.startswith('```json'):
+                cleaned_response = cleaned_response[7:]  # Remove ```json
+            elif cleaned_response.startswith('```'):
+                cleaned_response = cleaned_response[3:]  # Remove ```
+            
+            if cleaned_response.endswith('```'):
+                cleaned_response = cleaned_response[:-3]  # Remove trailing ```
+            
+            cleaned_response = cleaned_response.strip()
+            
             # Parse the JSON response
-            # The model should return a JSON object
-            result = json.loads(validation_response)
+            result = json.loads(cleaned_response)
             return result
         except json.JSONDecodeError:
             self.logger.error(f"Failed to parse validation response: {validation_response}")

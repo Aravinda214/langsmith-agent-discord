@@ -148,10 +148,18 @@ Keep it conversational and helpful."""
         
         self.logger.info(f"Analyzing {len(channels)} channels for user preferences")
         
+        # Track token usage
+        total_prompt_tokens = 0
+        total_completion_tokens = 0
+        
         # Analyze each channel
         analyzed_channels = []
         for channel in channels:
             analysis = await self._analyze_channel(channel, preferences)
+            
+            # Accumulate token usage
+            total_prompt_tokens += analysis.get('prompt_tokens', 0)
+            total_completion_tokens += analysis.get('completion_tokens', 0)
             
             # Only include channels that meet minimum score
             if analysis['match_score'] >= self.minimum_match_score:
@@ -172,16 +180,25 @@ Keep it conversational and helpful."""
         self.logger.info(f"Found {len(top_recommendations)} channels meeting minimum score")
         
         # Generate friendly recommendation message
-        recommendation_message = await self._generate_recommendation_message(
+        recommendation_result = await self._generate_recommendation_message(
             preferences,
             top_recommendations
         )
         
+        # Add message tokens to total
+        total_prompt_tokens += recommendation_result.get('prompt_tokens', 0)
+        total_completion_tokens += recommendation_result.get('completion_tokens', 0)
+        
         return {
             "recommendations": top_recommendations,
-            "message": recommendation_message,
+            "message": recommendation_result['message'],
             "total_analyzed": len(channels),
-            "total_matching": len(analyzed_channels)
+            "total_matching": len(analyzed_channels),
+            "token_usage": {
+                "prompt_tokens": total_prompt_tokens,
+                "completion_tokens": total_completion_tokens,
+                "total_tokens": total_prompt_tokens + total_completion_tokens
+            }
         }
     
     async def _analyze_channel(self, channel: Dict[str, Any], 
@@ -210,20 +227,41 @@ Keep it conversational and helpful."""
             target_audience=channel.get('target_audience', 'General')
         )
         
-        # Get analysis from model
-        analysis_response = await self._invoke_model(analysis_prompt)
+        # Get analysis from model with token usage
+        response_data = await self._invoke_model(analysis_prompt, return_usage=True)
+        analysis_response = response_data['content']
+        usage = response_data['usage']
         
         try:
-            analysis = json.loads(analysis_response)
+            # Clean the response - remove markdown code blocks if present
+            cleaned_response = analysis_response.strip()
+            if cleaned_response.startswith('```json'):
+                cleaned_response = cleaned_response[7:]  # Remove ```json
+            elif cleaned_response.startswith('```'):
+                cleaned_response = cleaned_response[3:]  # Remove ```
+            
+            if cleaned_response.endswith('```'):
+                cleaned_response = cleaned_response[:-3]  # Remove trailing ```
+            
+            cleaned_response = cleaned_response.strip()
+            
+            analysis = json.loads(cleaned_response)
+            # Add token usage to analysis
+            analysis['prompt_tokens'] = usage['prompt_tokens']
+            analysis['completion_tokens'] = usage['completion_tokens']
             return analysis
-        except json.JSONDecodeError:
+        except json.JSONDecodeError as e:
             self.logger.error(f"Failed to parse analysis for {channel.get('name')}")
+            self.logger.error(f"Raw response: {analysis_response[:200]}...")
+            self.logger.error(f"JSON error: {e}")
             # Return a default low-confidence analysis
             return {
                 "match_score": 0.5,
                 "reasoning": "Unable to complete full analysis",
                 "key_matches": [],
-                "potential_concerns": ["Analysis incomplete"]
+                "potential_concerns": ["Analysis incomplete"],
+                "prompt_tokens": usage['prompt_tokens'],
+                "completion_tokens": usage['completion_tokens']
             }
     
     async def _generate_recommendation_message(self, 
@@ -260,8 +298,12 @@ Keep it conversational and helpful."""
             channel_summaries=summaries_text
         )
         
-        message = await self._invoke_model(message_prompt)
-        return message
+        response_data = await self._invoke_model(message_prompt, return_usage=True)
+        return {
+            'message': response_data['content'],
+            'prompt_tokens': response_data['usage']['prompt_tokens'],
+            'completion_tokens': response_data['usage']['completion_tokens']
+        }
     
     async def fetch_channels_from_mcp(self) -> List[Dict[str, Any]]:
         """

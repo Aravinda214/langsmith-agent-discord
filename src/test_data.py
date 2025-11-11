@@ -49,11 +49,13 @@ def get_test_user_preferences() -> List[Dict[str, Any]]:
     Get sample user preferences for testing.
     
     These represent different user personas to test the matching algorithm.
+    Comment/uncomment test cases as needed to control test execution time.
     
     Returns:
         List of user preference dictionaries
     """
     return [
+        # Active test cases (2 tests - faster execution)
         {
             "name": "Python Beginner",
             "preferences": {
@@ -72,6 +74,8 @@ def get_test_user_preferences() -> List[Dict[str, Any]]:
                 "goals": "Stay updated with best practices and mentor others"
             }
         },
+        
+        # Optional test cases (uncomment to add more tests)
         {
             "name": "Career Switcher",
             "preferences": {

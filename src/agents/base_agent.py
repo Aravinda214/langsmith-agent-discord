@@ -100,7 +100,7 @@ class BaseAgent(ABC):
             self.logger.error(f"Missing required variable in prompt template: {e}")
             raise
     
-    async def _invoke_model(self, prompt: str) -> str:
+    async def _invoke_model(self, prompt: str, return_usage: bool = False):
         """
         Send a prompt to the language model and get a response.
         
@@ -109,14 +109,29 @@ class BaseAgent(ABC):
         
         Args:
             prompt: The instruction/question for the model
+            return_usage: If True, return dict with content and usage stats
             
         Returns:
-            The model's text response
+            If return_usage=False: The model's text response (str)
+            If return_usage=True: Dict with 'content' and 'usage' keys
         """
         try:
             self.logger.debug(f"Invoking model with prompt: {prompt[:100]}...")
             response = await self.model.ainvoke(prompt)
-            return response.content
+            
+            if return_usage:
+                # Extract token usage from response metadata
+                usage = response.response_metadata.get('token_usage', {})
+                return {
+                    'content': response.content,
+                    'usage': {
+                        'prompt_tokens': usage.get('prompt_tokens', 0),
+                        'completion_tokens': usage.get('completion_tokens', 0),
+                        'total_tokens': usage.get('total_tokens', 0)
+                    }
+                }
+            else:
+                return response.content
         except Exception as e:
             self.logger.error(f"Error invoking model: {e}")
             raise

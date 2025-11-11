@@ -4,17 +4,36 @@
 agents:
   user_preference_agent:
     name: "Preference Collector"
-    model: "gpt-4"
+    model: "gpt-4o"  # Changed to gpt-4o for fair comparison
     temperature: 0.7
     max_tokens: 500
     description: "Agent responsible for greeting users and collecting their preferences"
     
   channel_analyzer_agent:
     name: "Channel Analyzer"
-    model: "gpt-4"
+    model: "gpt-4o"  # Changed to gpt-4o for fair comparison
     temperature: 0.3
     max_tokens: 1000
     description: "Agent responsible for analyzing Discord channels and making recommendations"
+  
+  # ScaleDown-enabled agents (use prompt compression)
+  scaledown_user_preference_agent:
+    name: "ScaleDown Preference Collector"
+    model: "gpt-4o"  # ScaleDown optimized for gpt-4o
+    temperature: 0.7
+    max_tokens: 500
+    compression_rate: "auto"  # auto | 0.1-0.9 for manual control
+    scaledown_url: "https://api.scaledown.xyz/compress/raw/"
+    description: "ScaleDown-enabled agent for collecting preferences with compression"
+  
+  scaledown_channel_analyzer_agent:
+    name: "ScaleDown Channel Analyzer"
+    model: "gpt-4o"
+    temperature: 0.3
+    max_tokens: 1000
+    compression_rate: "auto"
+    scaledown_url: "https://api.scaledown.xyz/compress/raw/"
+    description: "ScaleDown-enabled agent for channel analysis with compression"
 
 # Preference Collection Settings
 preference_questions:
