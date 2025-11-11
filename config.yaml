@@ -1,0 +1,52 @@
+# Discord Channel Selector Agent Configuration
+
+# Agent Configuration
+agents:
+  user_preference_agent:
+    name: "Preference Collector"
+    model: "gpt-4"
+    temperature: 0.7
+    max_tokens: 500
+    description: "Agent responsible for greeting users and collecting their preferences"
+    
+  channel_analyzer_agent:
+    name: "Channel Analyzer"
+    model: "gpt-4"
+    temperature: 0.3
+    max_tokens: 1000
+    description: "Agent responsible for analyzing Discord channels and making recommendations"
+
+# Preference Collection Settings
+preference_questions:
+  - field: "interests"
+    question: "What are your main interests or topics you'd like to discuss?"
+    required: true
+    
+  - field: "role"
+    question: "What's your role or profession? (e.g., developer, designer, student, etc.)"
+    required: true
+    
+  - field: "experience_level"
+    question: "What's your experience level? (beginner, intermediate, advanced)"
+    required: true
+    
+  - field: "goals"
+    question: "What are you hoping to achieve or learn?"
+    required: false
+
+# Channel Analysis Settings
+channel_analysis:
+  max_recommendations: 5
+  minimum_match_score: 0.6
+  consider_activity_level: true
+  
+# MCP Server Settings (if using Discord MCP)
+mcp:
+  enabled: false  # Set to true if Discord MCP server is available
+  server_command: "npx -y @saseq/discord-mcp"
+  timeout: 30
+
+# Logging
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

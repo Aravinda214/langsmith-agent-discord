@@ -1,0 +1,167 @@
+{
+  "metadata": {
+    "description": "Discord channel data for recommendation system",
+    "version": "1.0",
+    "last_updated": "2025-11-10",
+    "total_channels": 15,
+    "matching_criteria": {
+      "interests": {
+        "weight": 0.40,
+        "description": "Matches user interests with channel topics",
+        "field": "topics"
+      },
+      "experience_level": {
+        "weight": 0.30,
+        "description": "Matches user experience level with channel target audience",
+        "field": "target_audience"
+      },
+      "role": {
+        "weight": 0.20,
+        "description": "Matches user role with channel's intended audience",
+        "field": "target_audience"
+      },
+      "goals": {
+        "weight": 0.10,
+        "description": "Matches user goals with channel description and purpose",
+        "field": "description"
+      }
+    }
+  },
+  "channels": [
+    {
+      "name": "python-beginners",
+      "description": "A friendly space for Python beginners to ask questions and learn together",
+      "topics": ["python", "programming", "learning", "beginners", "tutorials"],
+      "activity_level": "high",
+      "target_audience": "beginners",
+      "best_for_roles": ["student", "career switcher", "hobbyist"],
+      "best_for_goals": ["learning fundamentals", "building first projects", "getting help"]
+    },
+    {
+      "name": "python-advanced",
+      "description": "Advanced Python topics including async, metaprogramming, and performance optimization",
+      "topics": ["python", "advanced", "async", "optimization", "architecture"],
+      "activity_level": "medium",
+      "target_audience": "advanced",
+      "best_for_roles": ["senior developer", "architect", "technical lead"],
+      "best_for_goals": ["mastering python", "performance tuning", "architectural design"]
+    },
+    {
+      "name": "web-development",
+      "description": "Discuss web development with React, Vue, Node.js, and modern frameworks",
+      "topics": ["web", "javascript", "react", "nodejs", "frontend", "backend"],
+      "activity_level": "high",
+      "target_audience": "intermediate",
+      "best_for_roles": ["web developer", "full-stack developer", "frontend developer"],
+      "best_for_goals": ["building web apps", "learning modern frameworks", "career advancement"]
+    },
+    {
+      "name": "machine-learning",
+      "description": "ML and AI discussions, from basics to cutting-edge research",
+      "topics": ["machine learning", "AI", "neural networks", "deep learning", "data science"],
+      "activity_level": "medium",
+      "target_audience": "intermediate",
+      "best_for_roles": ["data scientist", "ML engineer", "researcher"],
+      "best_for_goals": ["learning ML", "staying updated", "research collaboration"]
+    },
+    {
+      "name": "data-science-beginners",
+      "description": "Start your data science journey with Python, pandas, and visualization",
+      "topics": ["data science", "python", "pandas", "visualization", "statistics"],
+      "activity_level": "medium",
+      "target_audience": "beginners",
+      "best_for_roles": ["student", "analyst", "career switcher"],
+      "best_for_goals": ["learning data analysis", "career change to data science", "building portfolio"]
+    },
+    {
+      "name": "career-advice",
+      "description": "Career guidance for developers, job hunting tips, and interview prep",
+      "topics": ["career", "jobs", "interviews", "resume", "professional development"],
+      "activity_level": "medium",
+      "target_audience": "all levels",
+      "best_for_roles": ["job seeker", "student", "career switcher"],
+      "best_for_goals": ["getting a job", "interview preparation", "career advancement"]
+    },
+    {
+      "name": "game-development",
+      "description": "Game dev with Unity, Unreal, and indie game development",
+      "topics": ["games", "unity", "unreal", "gamedev", "graphics"],
+      "activity_level": "low",
+      "target_audience": "intermediate",
+      "best_for_roles": ["game developer", "indie developer", "hobbyist"],
+      "best_for_goals": ["building games", "learning game engines", "indie development"]
+    },
+    {
+      "name": "devops-and-cloud",
+      "description": "DevOps practices, cloud platforms (AWS, Azure, GCP), and infrastructure",
+      "topics": ["devops", "cloud", "aws", "docker", "kubernetes", "ci/cd"],
+      "activity_level": "medium",
+      "target_audience": "intermediate",
+      "best_for_roles": ["devops engineer", "cloud engineer", "sre"],
+      "best_for_goals": ["learning cloud platforms", "infrastructure automation", "career in devops"]
+    },
+    {
+      "name": "student-projects",
+      "description": "Students sharing projects, getting feedback, and collaborating",
+      "topics": ["students", "projects", "learning", "collaboration", "feedback"],
+      "activity_level": "high",
+      "target_audience": "students",
+      "best_for_roles": ["student", "learner", "beginner"],
+      "best_for_goals": ["building portfolio", "getting feedback", "finding collaborators"]
+    },
+    {
+      "name": "algorithm-challenges",
+      "description": "Daily algorithm problems, leetcode discussions, and competitive programming",
+      "topics": ["algorithms", "data structures", "competitive programming", "leetcode"],
+      "activity_level": "high",
+      "target_audience": "all levels",
+      "best_for_roles": ["job seeker", "student", "competitive programmer"],
+      "best_for_goals": ["interview preparation", "improving problem-solving", "competitive programming"]
+    },
+    {
+      "name": "design-patterns",
+      "description": "Software design patterns, architecture, and best practices",
+      "topics": ["design patterns", "architecture", "software engineering", "best practices"],
+      "activity_level": "low",
+      "target_audience": "advanced",
+      "best_for_roles": ["senior developer", "architect", "technical lead"],
+      "best_for_goals": ["learning best practices", "architectural design", "code quality"]
+    },
+    {
+      "name": "mobile-development",
+      "description": "iOS and Android development with Swift, Kotlin, React Native, and Flutter",
+      "topics": ["mobile", "ios", "android", "react native", "flutter"],
+      "activity_level": "medium",
+      "target_audience": "intermediate",
+      "best_for_roles": ["mobile developer", "app developer", "full-stack developer"],
+      "best_for_goals": ["building mobile apps", "learning mobile development", "cross-platform development"]
+    },
+    {
+      "name": "freelancing",
+      "description": "Tips and discussions for freelance developers and consultants",
+      "topics": ["freelancing", "consulting", "business", "clients", "rates"],
+      "activity_level": "low",
+      "target_audience": "experienced",
+      "best_for_roles": ["freelancer", "consultant", "independent developer"],
+      "best_for_goals": ["starting freelance business", "finding clients", "pricing strategies"]
+    },
+    {
+      "name": "open-source",
+      "description": "Contributing to open source projects and building together",
+      "topics": ["open source", "git", "collaboration", "contributing"],
+      "activity_level": "medium",
+      "target_audience": "all levels",
+      "best_for_roles": ["developer", "contributor", "maintainer"],
+      "best_for_goals": ["contributing to open source", "building portfolio", "learning collaboration"]
+    },
+    {
+      "name": "database-design",
+      "description": "SQL, NoSQL, database design, optimization, and best practices",
+      "topics": ["databases", "sql", "nosql", "postgresql", "mongodb"],
+      "activity_level": "low",
+      "target_audience": "intermediate",
+      "best_for_roles": ["backend developer", "database administrator", "data engineer"],
+      "best_for_goals": ["learning databases", "optimization techniques", "data modeling"]
+    }
+  ]
+}

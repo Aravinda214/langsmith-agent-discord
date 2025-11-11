@@ -1,0 +1,96 @@
+{
+  "summary": {
+    "total_tests": 5,
+    "passed": 5,
+    "failed": 0,
+    "total_time": 418.41278,
+    "average_time": 83.682556
+  },
+  "results": [
+    {
+      "test_name": "Python Beginner",
+      "status": "success",
+      "execution_time_seconds": 87.5829,
+      "total_channels": 15,
+      "matching_channels": 5,
+      "recommendations_count": 5,
+      "top_recommendation": "python-beginners",
+      "top_match_score": 0.9,
+      "user_preferences": {
+        "interests": "Learning Python programming and data analysis",
+        "role": "Student",
+        "experience_level": "beginner",
+        "goals": "Build projects and get a job as a data analyst"
+      },
+      "timestamp": "2025-11-10T22:34:59.043518"
+    },
+    {
+      "test_name": "Senior Developer",
+      "status": "success",
+      "execution_time_seconds": 92.432706,
+      "total_channels": 15,
+      "matching_channels": 3,
+      "recommendations_count": 3,
+      "top_recommendation": "design-patterns",
+      "top_match_score": 0.85,
+      "user_preferences": {
+        "interests": "Software architecture, design patterns, and cloud infrastructure",
+        "role": "Senior Software Engineer",
+        "experience_level": "advanced",
+        "goals": "Stay updated with best practices and mentor others"
+      },
+      "timestamp": "2025-11-10T22:36:31.476224"
+    },
+    {
+      "test_name": "Career Switcher",
+      "status": "success",
+      "execution_time_seconds": 87.960631,
+      "total_channels": 15,
+      "matching_channels": 3,
+      "recommendations_count": 3,
+      "top_recommendation": "web-development",
+      "top_match_score": 0.7,
+      "user_preferences": {
+        "interests": "Web development, React, and modern JavaScript",
+        "role": "Career switcher from marketing to tech",
+        "experience_level": "beginner",
+        "goals": "Learn web development and get my first developer job"
+      },
+      "timestamp": "2025-11-10T22:37:59.437856"
+    },
+    {
+      "test_name": "ML Enthusiast",
+      "status": "success",
+      "execution_time_seconds": 78.779036,
+      "total_channels": 15,
+      "matching_channels": 1,
+      "recommendations_count": 1,
+      "top_recommendation": "machine-learning",
+      "top_match_score": 0.9,
+      "user_preferences": {
+        "interests": "Machine learning, AI, and deep learning",
+        "role": "Data Scientist",
+        "experience_level": "intermediate",
+        "goals": "Advance my ML skills and work on real-world AI projects"
+      },
+      "timestamp": "2025-11-10T22:39:18.217895"
+    },
+    {
+      "test_name": "Student Developer",
+      "status": "success",
+      "execution_time_seconds": 71.657507,
+      "total_channels": 15,
+      "matching_channels": 4,
+      "recommendations_count": 4,
+      "top_recommendation": "algorithm-challenges",
+      "top_match_score": 0.9,
+      "user_preferences": {
+        "interests": "Programming, algorithms, and interview preparation",
+        "role": "Computer Science Student",
+        "experience_level": "intermediate",
+        "goals": "Practice coding challenges and prepare for technical interviews"
+      },
+      "timestamp": "2025-11-10T22:40:29.876404"
+    }
+  ]
+}
