@@ -1,0 +1,97 @@
+{
+  "timestamp": "2025-11-14T20:59:09.530354",
+  "summary": {
+    "standard": {
+      "preference_collection_tokens": 896,
+      "channel_analysis_tokens": 2971,
+      "total_tokens_per_recommendation": 3867,
+      "breakdown": {
+        "greeting": 67,
+        "questions": 341,
+        "validation": 488,
+        "channel_analysis": 2870,
+        "recommendation_message": 101
+      }
+    },
+    "scaledown": {
+      "preference_collection_tokens": 833,
+      "channel_analysis_tokens": 2982,
+      "total_tokens_per_recommendation": 3815,
+      "estimated_compressed_tokens": 1869,
+      "breakdown": {
+        "greeting": 60,
+        "questions": 297,
+        "validation": 476,
+        "channel_analysis": 2870,
+        "recommendation_message": 112
+      }
+    },
+    "comparison": {
+      "num_channels_analyzed": 15,
+      "above_2000_token_threshold": true,
+      "scaledown_compressed_above_threshold": false
+    }
+  },
+  "detailed_measurements": {
+    "preference_collection": {
+      "standard": {
+        "agent_type": "standard",
+        "greeting_tokens": 67,
+        "question_tokens": [
+          84,
+          90,
+          86,
+          81
+        ],
+        "validation_tokens": [
+          122,
+          122,
+          122,
+          122
+        ],
+        "total_tokens": 896
+      },
+      "scaledown": {
+        "agent_type": "scaledown",
+        "greeting_tokens": 60,
+        "question_tokens": [
+          73,
+          79,
+          75,
+          70
+        ],
+        "validation_tokens": [
+          119,
+          119,
+          119,
+          119
+        ],
+        "total_tokens": 833
+      }
+    },
+    "channel_analysis": {
+      "standard": {
+        "agent_type": "standard",
+        "num_channels": 15,
+        "tokens_per_channel": [
+          190,
+          191,
+          193
+        ],
+        "recommendation_tokens": 101,
+        "total_tokens": 2971
+      },
+      "scaledown": {
+        "agent_type": "scaledown",
+        "num_channels": 15,
+        "tokens_per_channel": [
+          190,
+          191,
+          193
+        ],
+        "recommendation_tokens": 112,
+        "total_tokens": 2982
+      }
+    }
+  }
+}

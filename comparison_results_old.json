@@ -1,0 +1,192 @@
+{
+  "timestamp": "2025-11-11T08:20:10.828853",
+  "comparisons": [
+    {
+      "test_case_name": "Python Beginner",
+      "user_profile": "Learning Python programming and data analysis",
+      "standard": {
+        "total_time": 41.05834460258484,
+        "tokens": {
+          "prompt_tokens": 3399,
+          "completion_tokens": 2273,
+          "total_tokens": 5672
+        },
+        "cost": 0.0312275,
+        "top_recommendation": "python-beginners"
+      },
+      "scaledown": {
+        "total_time": 49.36975979804993,
+        "compression_metrics": {
+          "total_original_tokens": 4635,
+          "total_compressed_tokens": 2866,
+          "tokens_saved": 1769,
+          "total_compression_time": 3.3077285289764404,
+          "compression_ratio": 38.16612729234088
+        },
+        "cost": 0.010025000000000001,
+        "top_recommendation": "python-beginners"
+      },
+      "comparison": {
+        "token_savings": 2806,
+        "token_savings_pct": 49.471086036671366,
+        "cost_savings": 0.0212025,
+        "cost_savings_pct": 67.89688575774558,
+        "latency_diff": 8.311415195465088,
+        "latency_improvement": false,
+        "same_top_recommendation": true
+      }
+    },
+    {
+      "test_case_name": "Senior Developer",
+      "user_profile": "Software architecture, design patterns, and cloud ",
+      "standard": {
+        "total_time": 46.210588216781616,
+        "tokens": {
+          "prompt_tokens": 3447,
+          "completion_tokens": 2173,
+          "total_tokens": 5620
+        },
+        "cost": 0.030347500000000003,
+        "top_recommendation": "design-patterns"
+      },
+      "scaledown": {
+        "total_time": 60.127530336380005,
+        "compression_metrics": {
+          "total_original_tokens": 4584,
+          "total_compressed_tokens": 2864,
+          "tokens_saved": 1720,
+          "total_compression_time": 3.273456335067749,
+          "compression_ratio": 37.52181500872601
+        },
+        "cost": 0.010020000000000001,
+        "top_recommendation": "design-patterns"
+      },
+      "comparison": {
+        "token_savings": 2756,
+        "token_savings_pct": 49.039145907473305,
+        "cost_savings": 0.020327500000000002,
+        "cost_savings_pct": 66.98245324985584,
+        "latency_diff": 13.916942119598389,
+        "latency_improvement": false,
+        "same_top_recommendation": true
+      }
+    },
+    {
+      "test_case_name": "Career Switcher",
+      "user_profile": "Web development, React, and modern JavaScript",
+      "standard": {
+        "total_time": 43.053383588790894,
+        "tokens": {
+          "prompt_tokens": 3480,
+          "completion_tokens": 2184,
+          "total_tokens": 5664
+        },
+        "cost": 0.030540000000000005,
+        "top_recommendation": "web-development"
+      },
+      "scaledown": {
+        "total_time": 57.11170172691345,
+        "compression_metrics": {
+          "total_original_tokens": 4762,
+          "total_compressed_tokens": 2922,
+          "tokens_saved": 1840,
+          "total_compression_time": 3.305751085281372,
+          "compression_ratio": 38.63922721545569
+        },
+        "cost": 0.010225000000000001,
+        "top_recommendation": "career-advice"
+      },
+      "comparison": {
+        "token_savings": 2742,
+        "token_savings_pct": 48.41101694915254,
+        "cost_savings": 0.020315000000000003,
+        "cost_savings_pct": 66.51931892599869,
+        "latency_diff": 14.058318138122559,
+        "latency_improvement": false,
+        "same_top_recommendation": false
+      }
+    },
+    {
+      "test_case_name": "ML Enthusiast",
+      "user_profile": "Machine learning, AI, and deep learning",
+      "standard": {
+        "total_time": 46.71162939071655,
+        "tokens": {
+          "prompt_tokens": 3289,
+          "completion_tokens": 2382,
+          "total_tokens": 5671
+        },
+        "cost": 0.0320425,
+        "top_recommendation": "machine-learning"
+      },
+      "scaledown": {
+        "total_time": 49.53229284286499,
+        "compression_metrics": {
+          "total_original_tokens": 4517,
+          "total_compressed_tokens": 2867,
+          "tokens_saved": 1650,
+          "total_compression_time": 3.162064552307129,
+          "compression_ratio": 36.528669470887756
+        },
+        "cost": 0.0100275,
+        "top_recommendation": "machine-learning"
+      },
+      "comparison": {
+        "token_savings": 2804,
+        "token_savings_pct": 49.44454240874625,
+        "cost_savings": 0.022015,
+        "cost_savings_pct": 68.70562534134352,
+        "latency_diff": 2.8206634521484375,
+        "latency_improvement": false,
+        "same_top_recommendation": true
+      }
+    },
+    {
+      "test_case_name": "Student Developer",
+      "user_profile": "Programming, algorithms, and interview preparation",
+      "standard": {
+        "total_time": 38.6016161441803,
+        "tokens": {
+          "prompt_tokens": 3310,
+          "completion_tokens": 2001,
+          "total_tokens": 5311
+        },
+        "cost": 0.028285,
+        "top_recommendation": "algorithm-challenges"
+      },
+      "scaledown": {
+        "total_time": 50.011500120162964,
+        "compression_metrics": {
+          "total_original_tokens": 4632,
+          "total_compressed_tokens": 2837,
+          "tokens_saved": 1795,
+          "total_compression_time": 3.203293561935425,
+          "compression_ratio": 38.752158894645945
+        },
+        "cost": 0.0099225,
+        "top_recommendation": "algorithm-challenges"
+      },
+      "comparison": {
+        "token_savings": 2474,
+        "token_savings_pct": 46.582564488796834,
+        "cost_savings": 0.0183625,
+        "cost_savings_pct": 64.91956867597666,
+        "latency_diff": 11.409883975982666,
+        "latency_improvement": false,
+        "same_top_recommendation": true
+      }
+    }
+  ],
+  "aggregate": {
+    "total_test_cases": 5,
+    "total_standard_cost": 0.1524425,
+    "total_scaledown_cost": 0.05022,
+    "total_cost_savings": 0.10222250000000001,
+    "total_standard_tokens": 27938,
+    "total_scaledown_tokens": 14356,
+    "total_tokens_saved": 13582,
+    "avg_token_savings_pct": 48.58967115816806,
+    "avg_cost_savings_pct": 67.00477039018406,
+    "accuracy_match_pct": 80.0
+  }
+}

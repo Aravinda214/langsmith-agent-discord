@@ -85,11 +85,7 @@ Discord Channel Selector initialized successfully!
 🤖 Bot: Hello and welcome! I'm here to help you find...
 ```
 
-### Run with ScaleDown Agents (With Compression)
-```bash
-cd src
-python main.py --agent scaledown
-```
+
 
 **What it does:**
 - ✅ Same interactive experience as standard
@@ -316,6 +312,34 @@ python -m json.tool comparison_results.json
 
 ## **Development Commands**
 
+### Extract Real Discord Channels
+```bash
+cd src
+python extract_discord_channels.py
+```
+
+**What it does:**
+- Extracts channel information from a Discord server
+- Two modes: Automated (bot) or Manual (type in details)
+- Saves to `data/scaledown_channels.json`
+- Use this to get real ScaleDown Discord channels
+
+**Output:**
+```
+Choose extraction method:
+1. Automated (using Discord bot)
+2. Manual (fill in channel details yourself)
+
+Enter choice (1 or 2): 2
+
+📝 Manual Channel Extraction
+Channel name: api-help
+Description: Get help with ScaleDown API
+Topics: scaledown, api, support
+Activity level: high
+✅ Added #api-help
+```
+
 ### Run All Unit Tests (if available)
 ```bash
 cd src
@@ -428,9 +452,6 @@ python compare_agents.py
 # Show standard approach
 python main.py --agent standard
 
-# Show ScaleDown approach
-python main.py --agent scaledown
-
 # Show comparison results
 type comparison_results.json
 ```
@@ -540,6 +561,7 @@ langsmith-agent-discord/
 
 | Task | Command |
 |------|---------|
+| **Extract ScaleDown Channels** | `python extract_discord_channels.py` |
 | **Interactive (Standard)** | `python main.py --agent standard` |
 | **Interactive (ScaleDown)** | `python main.py --agent scaledown` |
 | **Test Standard Only** | `python test_single_agent.py --agent standard` |

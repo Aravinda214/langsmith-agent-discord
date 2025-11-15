@@ -37,7 +37,7 @@ class ScaleDownChannelAnalyzerAgent(ScaleDownBaseAgent):
 User Preferences:
 - Interests: {interests}
 - Role: {role}
-- Experience Level: {experience_level}  
+- Experience Level: {experience_level}
 - Goals: {goals}
 
 Channel Information:
@@ -45,15 +45,7 @@ Channel Information:
 - Description: {channel_description}
 - Topics: {channel_topics}
 - Activity Level: {activity_level}
-- Target Audience: {target_audience}
-- Best for Roles: {best_for_roles}
-- Best for Goals: {best_for_goals}
-
-Matching Criteria (from metadata):
-- Interests: 40% weight (matches topics)
-- Experience Level: 30% weight (matches target_audience)
-- Role: 20% weight (matches best_for_roles)
-- Goals: 10% weight (matches best_for_goals)"""
+- Target Audience: {target_audience}"""
     
     CHANNEL_ANALYSIS_PROMPT = """Analyze how well this channel matches the user's preferences. Return ONLY a JSON object:
 {
@@ -63,7 +55,7 @@ Matching Criteria (from metadata):
     "potential_concerns": ["list", "of", "potential", "issues"]
 }
 
-Be objective and consider all factors. Use the weighting criteria provided."""
+Be objective and consider all factors."""
     
     # Context for generating final recommendations
     RECOMMENDATION_CONTEXT_TEMPLATE = """You are presenting Discord channel recommendations to a user.
@@ -205,9 +197,7 @@ Be conversational and supportive."""
             channel_description=channel.get('description', 'No description'),
             channel_topics=', '.join(channel.get('topics', [])),
             activity_level=channel.get('activity_level', 'unknown'),
-            target_audience=channel.get('target_audience', 'all'),
-            best_for_roles=', '.join(channel.get('best_for_roles', [])),
-            best_for_goals=', '.join(channel.get('best_for_goals', []))
+            target_audience=channel.get('target_audience', 'all')
         )
         
         # Compress and analyze
